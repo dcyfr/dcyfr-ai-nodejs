@@ -73,6 +73,241 @@ export async function createServer(): Promise<{ app: express.Application; contex
     });
   });
   
+  // Index page
+  app.get('/', (_req: Request, res: Response) => {
+    res.send(`
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DCYFR AI Node.js Starter</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        .container {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            max-width: 800px;
+            width: 100%;
+            padding: 40px;
+        }
+        h1 {
+            color: #667eea;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        .subtitle {
+            color: #666;
+            font-size: 1.1em;
+            margin-bottom: 30px;
+        }
+        .status {
+            display: inline-block;
+            background: #10b981;
+            color: white;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            margin-bottom: 20px;
+        }
+        .section {
+            margin: 30px 0;
+        }
+        h2 {
+            color: #333;
+            font-size: 1.5em;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #667eea;
+            padding-bottom: 8px;
+        }
+        .endpoint {
+            background: #f8f9fa;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+        }
+        .endpoint-method {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.85em;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+        .endpoint-path {
+            font-family: 'Courier New', monospace;
+            color: #333;
+            font-weight: bold;
+        }
+        .endpoint-desc {
+            color: #666;
+            margin-top: 8px;
+            font-size: 0.95em;
+        }
+        .endpoint-link {
+            display: inline-block;
+            margin-top: 8px;
+            color: #667eea;
+            text-decoration: none;
+            font-size: 0.9em;
+        }
+        .endpoint-link:hover {
+            text-decoration: underline;
+        }
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .feature {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+        }
+        .feature-icon {
+            font-size: 2em;
+            margin-bottom: 8px;
+        }
+        .feature-title {
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 5px;
+        }
+        .feature-desc {
+            color: #666;
+            font-size: 0.9em;
+        }
+        footer {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #e5e7eb;
+            text-align: center;
+            color: #666;
+            font-size: 0.9em;
+        }
+        .badge {
+            display: inline-block;
+            background: #f3f4f6;
+            color: #666;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 0.85em;
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚀 DCYFR AI Node.js</h1>
+        <p class="subtitle">Production-ready starter template with Express & TypeScript</p>
+        <span class="status">✓ Server Running</span>
+        
+        <div class="section">
+            <h2>API Endpoints</h2>
+            
+            <div class="endpoint">
+                <span class="endpoint-method">GET</span>
+                <span class="endpoint-path">/health</span>
+                <p class="endpoint-desc">Health check and framework status</p>
+                <a href="/health" class="endpoint-link" target="_blank">→ Try it</a>
+            </div>
+            
+            <div class="endpoint">
+                <span class="endpoint-method">GET</span>
+                <span class="endpoint-path">/api/status</span>
+                <p class="endpoint-desc">Service metrics and uptime information</p>
+                <a href="/api/status" class="endpoint-link" target="_blank">→ Try it</a>
+            </div>
+            
+            <div class="endpoint">
+                <span class="endpoint-method">POST</span>
+                <span class="endpoint-path">/api/validate</span>
+                <p class="endpoint-desc">Data validation endpoint with DCYFR AI</p>
+                <code style="display: block; margin-top: 8px; font-size: 0.85em; color: #666;">
+                    curl -X POST http://localhost:3000/api/validate -H "Content-Type: application/json" -d '{"data": {"email": "user@example.com"}}'
+                </code>
+            </div>
+            
+            <div class="endpoint">
+                <span class="endpoint-method">GET</span>
+                <span class="endpoint-path">/api/telemetry/stats</span>
+                <p class="endpoint-desc">Telemetry configuration and statistics</p>
+                <a href="/api/telemetry/stats" class="endpoint-link" target="_blank">→ Try it</a>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>Framework Features</h2>
+            <div class="features">
+                <div class="feature">
+                    <div class="feature-icon">🤖</div>
+                    <div class="feature-title">DCYFR AI</div>
+                    <div class="feature-desc">Integrated validation & telemetry</div>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">⚡</div>
+                    <div class="feature-title">Express</div>
+                    <div class="feature-desc">Fast, minimalist web framework</div>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">📘</div>
+                    <div class="feature-title">TypeScript</div>
+                    <div class="feature-desc">Strict mode type safety</div>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">🧪</div>
+                    <div class="feature-title">Vitest</div>
+                    <div class="feature-desc">Modern testing framework</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>Quick Start</h2>
+            <div style="background: #f8f9fa; padding: 15px; border-radius: 8px; font-family: 'Courier New', monospace; font-size: 0.9em;">
+                <div># Install dependencies</div>
+                <div style="color: #667eea;">npm install</div>
+                <div style="margin-top: 10px;"># Start development server</div>
+                <div style="color: #667eea;">npm run serve</div>
+                <div style="margin-top: 10px;"># Run CLI</div>
+                <div style="color: #667eea;">npm run cli status</div>
+            </div>
+        </div>
+        
+        <footer>
+            <div>
+                <span class="badge">Node ${process.version}</span>
+                <span class="badge">v1.0.0</span>
+                <span class="badge">MIT License</span>
+            </div>
+            <p style="margin-top: 10px;">
+                <a href="https://github.com/dcyfr/dcyfr-ai-nodejs" target="_blank" style="color: #667eea; text-decoration: none;">
+                    View on GitHub →
+                </a>
+            </p>
+        </footer>
+    </div>
+</body>
+</html>
+    `);
+  });
+  
   // API routes
   app.get('/api/status', (_req: Request, res: Response) => {
     res.json({
