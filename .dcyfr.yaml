@@ -1,0 +1,74 @@
+# DCYFR AI Configuration for Node.js Starter Template
+version: "1.0"
+extends: ../.dcyfr-workspace/config.yaml
+
+project:
+  name: dcyfr-ai-nodejs-starter
+  type: starter-template
+  description: Node.js & TypeScript starter template with DCYFR AI
+  framework: nodejs
+
+# Enable all framework features
+features:
+  telemetry: true
+  validation: true
+  plugins: true
+  providers: true
+
+# Development settings
+development:
+  hot-reload: true
+  source-maps: true
+  type-checking: strict
+
+# Validation rules
+validation:
+  patterns:
+    - import-style
+    - export-style
+    - naming-conventions
+    - code-style
+  
+  rules:
+    # Enforce ES modules
+    require-esm: error
+    # Strict TypeScript
+    require-strict-types: error
+    # Modern Node.js features
+    prefer-modern-syntax: warn
+
+# Plugin configuration
+plugins:
+  enabled:
+    - typescript-validator
+    - eslint-integration
+    - prettier-integration
+  
+  custom:
+    # Example: custom validation plugin
+    - name: project-structure
+      enabled: true
+      config:
+        enforce-src-dir: true
+        enforce-tests-dir: true
+
+# Telemetry settings (opt-in)
+telemetry:
+  enabled: true
+  level: basic
+  endpoints:
+    - type: console
+      level: info
+    - type: file
+      path: .dcyfr/telemetry.log
+      level: debug
+
+# AI Agent settings
+agents:
+  auto-validation: true
+  suggest-improvements: true
+  
+  providers:
+    openai: false
+    anthropic: false
+    github: false

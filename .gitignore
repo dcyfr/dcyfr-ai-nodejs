@@ -1,0 +1,40 @@
+# Ignore build outputs
+dist/
+*.tsbuildinfo
+
+# Dependencies
+node_modules/
+
+# Testing
+coverage/
+*.lcov
+.vitest/
+
+# Logs
+*.log
+npm-debug.log*
+logs/
+.dcyfr/telemetry.log
+telemetry-output.jsonl
+
+# Environment files
+.env
+.env.local
+.env.*.local
+config.json
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Temporary files
+*.tmp
+temp/
+tmp/
+
+# OS files
+Thumbs.db
