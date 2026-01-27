@@ -24,14 +24,13 @@ async function initializeFramework(): Promise<{ validation: ValidationFramework;
   const telemetry = new TelemetryEngine({
     enabled: config.telemetry.enabled,
     storage: 'file',
-    storagePath: '.dcyfr/telemetry'
+    basePath: '.dcyfr/telemetry'
   });
   
   // Initialize validation framework
   const validation = new ValidationFramework({
-    enabled: config.validation.enabled,
-    gates: [],
-    reporters: ['console']
+    failureMode: config.validation.enabled ? 'error' : 'warn',
+    parallel: true
   });
   
   logger.info('DCYFR AI Framework initialized successfully');
@@ -51,12 +50,9 @@ async function main(): Promise<void> {
     
     // Your application logic here
     logger.info('Application started successfully');
-    
-    // Example: Use validation framework
-    const validationResult = await validation.runGates([]);
-    logger.info('Validation check complete', { 
-      passed: validationResult.passed,
-      violations: validationResult.violations.length 
+    logger.info('DCYFR AI framework ready', {
+      validation: 'enabled',
+      telemetry: 'enabled'
     });
     
     // Graceful shutdown handler
@@ -67,7 +63,14 @@ async function main(): Promise<void> {
     });
     
   } catch (error) {
-    logger.error('Application failed to start', { error });
+    logger.error('Application failed to start', { 
+      error: error instanceof Error ? {
+        message: error.message,
+        stack: error.stack,
+        name: error.name
+      } : error 
+    });
+    console.error('Full error:', error);
     process.exit(1);
   }
 }

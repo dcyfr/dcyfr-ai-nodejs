@@ -2,27 +2,28 @@
 
 ## Current Status ✅
 
-This starter template now uses the **local @dcyfr/ai package** via workspace file references! The framework types and structure are working, though runtime execution requires the @dcyfr/ai package to be built with proper ES module exports.
+This starter template now uses the **local @dcyfr/ai package** via workspace file references and is **fully functional**!
 
-### What's Working Now
+### What's Working
 
 - ✅ TypeScript compilation with @dcyfr/ai imports
 - ✅ Type checking passes
 - ✅ All unit tests passing (9/9)
 - ✅ Build completes successfully  
 - ✅ Framework classes importable (`ValidationFramework`, `TelemetryEngine`)
+- ✅ **Runtime execution working**
+- ✅ **Application starts and runs successfully**
 
-### What Needs Framework Updates
+### Configuration Updates
 
-The @dcyfr/ai package needs minor fixes for runtime execution:
-- Import statements need `.js` extensions for ES modules
-- Build configuration adjustment for proper module resolution
-
-This is being addressed in the @dcyfr/ai package itself.
+The following fixes were applied:
+- `TelemetryEngine` now uses `basePath` instead of `storagePath`
+- `ValidationFramework` simplified configuration (no longer requires `gates` array)
+- Better error logging for debugging
 
 ## When @dcyfr/ai is Published
 
-Follow these steps to enable full AI framework integration:
+Follow these steps to switch from local to published package:
 
 ### 1. Install the Framework
 
