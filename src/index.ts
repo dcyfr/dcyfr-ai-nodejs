@@ -3,11 +3,12 @@
  * 
  * This is the main entry point for your application.
  * It demonstrates how to integrate DCYFR AI framework into a Node.js project.
- * 
- * NOTE: This template is designed to work with @dcyfr/ai when it's published.
- * For now, it provides a working starter without the actual framework dependency.
  */
 
+import { 
+  ValidationFramework, 
+  TelemetryEngine
+} from '@dcyfr/ai';
 import { createLogger } from './lib/logger.js';
 import { loadConfig } from './lib/config.js';
 
@@ -15,22 +16,27 @@ const logger = createLogger('main');
 
 /**
  * Initialize DCYFR AI framework with configuration
- * 
- * TODO: Uncomment when @dcyfr/ai is available
  */
-async function initializeFramework(): Promise<void> {
+async function initializeFramework(): Promise<{ validation: ValidationFramework; telemetry: TelemetryEngine }> {
   const config = await loadConfig();
   
-  logger.info('DCYFR AI Framework configuration loaded', {
-    telemetry: config.telemetry.enabled,
-    validation: config.validation.enabled
+  // Initialize telemetry engine
+  const telemetry = new TelemetryEngine({
+    enabled: config.telemetry.enabled,
+    storage: 'file',
+    storagePath: '.dcyfr/telemetry'
   });
   
-  // Framework initialization will go here when @dcyfr/ai is available
-  // const framework = new DCYFRFramework(frameworkConfig);
-  // await framework.initialize();
+  // Initialize validation framework
+  const validation = new ValidationFramework({
+    enabled: config.validation.enabled,
+    gates: [],
+    reporters: ['console']
+  });
   
-  logger.info('Application initialized (framework integration pending)');
+  logger.info('DCYFR AI Framework initialized successfully');
+  
+  return { validation, telemetry };
 }
 
 /**
@@ -41,16 +47,22 @@ async function main(): Promise<void> {
     logger.info('Starting DCYFR AI-powered Node.js application...');
     
     // Initialize the framework
-    await initializeFramework();
+    const { validation, telemetry } = await initializeFramework();
     
     // Your application logic here
     logger.info('Application started successfully');
-    logger.info('This is a starter template - add your custom logic here!');
+    
+    // Example: Use validation framework
+    const validationResult = await validation.runGates([]);
+    logger.info('Validation check complete', { 
+      passed: validationResult.passed,
+      violations: validationResult.violations.length 
+    });
     
     // Graceful shutdown handler
     process.on('SIGINT', async () => {
       logger.info('Shutting down...');
-      // await framework.shutdown();
+      await telemetry.shutdown?.();
       process.exit(0);
     });
     
@@ -65,3 +77,4 @@ main();
 
 // Export for testing
 export { initializeFramework, main };
+

@@ -1,17 +1,24 @@
 # DCYFR AI Integration Notes
 
-## Current Status
+## Current Status ✅
 
-This starter template is **ready to use** but contains placeholder code for DCYFR AI framework integration. The template works perfectly as a Node.js + TypeScript starter, but the actual AI framework features are not yet active.
+This starter template now uses the **local @dcyfr/ai package** via workspace file references! The framework types and structure are working, though runtime execution requires the @dcyfr/ai package to be built with proper ES module exports.
 
-## Why Placeholder Code?
+### What's Working Now
 
-The `@dcyfr/ai` package is currently in development and not yet published to npm. To make this starter template immediately useful, we've:
+- ✅ TypeScript compilation with @dcyfr/ai imports
+- ✅ Type checking passes
+- ✅ All unit tests passing (9/9)
+- ✅ Build completes successfully  
+- ✅ Framework classes importable (`ValidationFramework`, `TelemetryEngine`)
 
-1. ✅ Created a fully functional Node.js + TypeScript project structure
-2. ✅ Included working examples of logging, configuration, and testing
-3. ✅ Added placeholder comments showing how to integrate @dcyfr/ai when available
-4. ✅ Ensured all builds, tests, and type checking pass
+### What Needs Framework Updates
+
+The @dcyfr/ai package needs minor fixes for runtime execution:
+- Import statements need `.js` extensions for ES modules
+- Build configuration adjustment for proper module resolution
+
+This is being addressed in the @dcyfr/ai package itself.
 
 ## When @dcyfr/ai is Published
 

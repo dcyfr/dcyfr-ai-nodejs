@@ -36,7 +36,9 @@
   ],
   "author": "DCYFR",
   "license": "MIT",
-  "dependencies": {},
+  "dependencies": {
+    "@dcyfr/ai": "file:../dcyfr-ai"
+  },
   "devDependencies": {
     "@types/node": "^22.10.2",
     "@typescript-eslint/eslint-plugin": "^8.20.0",

@@ -3,56 +3,43 @@
  * 
  * This example demonstrates the fundamentals of using DCYFR AI
  * in a Node.js application.
- * 
- * NOTE: This is a placeholder example. Uncomment and adapt when @dcyfr/ai is available.
  */
 
-// import { DCYFRFramework } from '@dcyfr/ai';
-// import type { FrameworkConfig } from '@dcyfr/ai';
+import { ValidationFramework, TelemetryEngine } from '@dcyfr/ai';
+import type { FrameworkConfig } from '@dcyfr/ai';
 
 async function basicExample() {
   console.log('🚀 DCYFR AI Basic Example\n');
 
-  console.log('✅ This starter template is ready to use!');
-  console.log('📝 When @dcyfr/ai is published, you can:');
-  console.log('   1. Install: npm install @dcyfr/ai');
-  console.log('   2. Uncomment the framework imports');
-  console.log('   3. Initialize the framework');
-  console.log('   4. Use validation, plugins, and telemetry features\n');
-
-  // Example of what the code will look like:
-  /*
-  const config: FrameworkConfig = {
-    telemetry: {
-      enabled: true,
-      level: 'info'
-    },
-    validation: {
-      enabled: true,
-      strict: true
-    }
-  };
-
-  const framework = new DCYFRFramework(config);
-  await framework.initialize();
-  console.log('✅ Framework initialized\n');
-
-  const result = await framework.validate({
-    type: 'user-input',
-    data: {
-      email: 'user@example.com',
-      age: 25
-    }
+  // 1. Initialize telemetry
+  const telemetry = new TelemetryEngine({
+    enabled: true,
+    storage: 'memory'
   });
+  console.log('✅ Telemetry initialized\n');
+
+  // 2. Initialize validation framework
+  const validation = new ValidationFramework({
+    enabled: true,
+    gates: [],
+    reporters: ['console']
+  });
+  console.log('✅ Validation framework initialized\n');
+
+  // 3. Run validation
+  const result = await validation.runGates([]);
   
-  if (result.valid) {
+  if (result.passed) {
     console.log('✅ Validation passed');
+    console.log('Violations:', result.violations.length);
+  } else {
+    console.log('❌ Validation failed');
+    console.log('Violations:', result.violations);
   }
-  
-  await framework.shutdown();
-  */
-  
-  console.log('✅ Example complete');
+
+  // 4. Cleanup
+  await telemetry.shutdown?.();
+  console.log('\n✅ Framework shutdown complete');
 }
 
 // Run the example
