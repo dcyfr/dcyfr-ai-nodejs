@@ -6,10 +6,14 @@
 
 **A production-ready starter template for building Node.js applications with TypeScript and DCYFR AI framework.**
 
-This template provides a solid foundation for building modern Node.js applications with integrated AI capabilities, strict TypeScript configuration, comprehensive testing setup, and best practices baked in.
+This template provides a solid foundation for building modern web applications and CLI tools with integrated AI capabilities, strict TypeScript configuration, comprehensive testing setup, and best practices baked in.
+
+**Includes both Web Server (Express) and CLI (Commander) for comprehensive development.**
 
 ## ✨ Features
 
+- 🌐 **Express Web Server** - Production-ready HTTP server with middleware
+- 🖥️ **Commander CLI** - Full-featured command-line interface
 - 🤖 **DCYFR AI Integration** - Built-in AI framework with plugins, validation, and telemetry
 - 📘 **TypeScript Strict Mode** - Full type safety with strict compiler options
 - ⚡ **Modern Node.js** - ESM modules, Node.js 24+, latest features
@@ -44,26 +48,24 @@ npm run dev
 ### Development
 
 ```bash
-# Run in development mode with hot reload
-npm run dev
+# Web Server
+npm run serve           # Start development web server
+npm start               # Start production web server
 
-# Build for production
-npm run build
+# CLI Commands
+npm run cli serve       # Start server via CLI
+npm run cli status      # Show framework status
+npm run cli validate    # Run validation checks
+npm run cli telemetry   # Show telemetry info
+npm run cli init        # Show getting started info
 
-# Start production server
-npm start
-
-# Run tests
-npm test
-
-# Run tests with coverage
-npm run test:coverage
-
-# Type check
-npm run type-check
-
-# Lint code
-npm run lint
+# Development
+npm run dev             # Run in watch mode
+npm run build           # Build for production
+npm test                # Run tests
+npm run test:coverage   # Run tests with coverage
+npm run type-check      # Type check only
+npm run lint            # Lint code
 ```
 
 ## 📁 Project Structure
@@ -71,7 +73,9 @@ npm run lint
 ```
 dcyfr-ai-nodejs/
 ├── src/
-│   ├── index.ts              # Main entry point
+│   ├── index.ts              # Main entry point (router)
+│   ├── server.ts             # Express web server
+│   ├── cli.ts                # Commander CLI
 │   ├── lib/
 │   │   ├── logger.ts         # Structured logging utility
 │   │   └── config.ts         # Configuration loader
@@ -93,21 +97,74 @@ dcyfr-ai-nodejs/
 
 ## 🎯 Usage Examples
 
+### Web Server
+
+Start the Express web server with DCYFR AI integration:
+
+```bash
+npm run serve
+```
+
+The server will start on `http://localhost:3000` with the following endpoints:
+
+- `GET /health` - Health check endpoint
+- `GET /api/status` - Service status and metrics
+- `POST /api/validate` - Validation endpoint
+- `GET /api/telemetry/stats` - Telemetry statistics
+
+Example request:
+
+```bash
+# Health check
+curl http://localhost:3000/health
+
+# Validate data
+curl -X POST http://localhost:3000/api/validate \
+  -H "Content-Type: application/json" \
+  -d '{"data": {"email": "user@example.com"}}'
+```
+
+### CLI Commands
+
+Use the command-line interface for various operations:
+
+```bash
+# Show framework status
+npm run cli status
+
+# Run validation checks
+npm run cli validate
+
+# Show telemetry info
+npm run cli telemetry
+
+# Start web server via CLI
+npm run cli serve --port 3000
+
+# Get help
+npm run cli -- --help
+```
+
 ### Basic Framework Usage
 
 ```typescript
-import { DCYFRFramework } from '@dcyfr/ai';
+import { ValidationFramework, TelemetryEngine } from '@dcyfr/ai';
 
-const framework = new DCYFRFramework({
-  telemetry: { enabled: true },
-  validation: { enabled: true, strict: true }
+const telemetry = new TelemetryEngine({
+  enabled: true,
+  storage: 'file',
+  basePath: '.dcyfr/telemetry'
 });
 
-await framework.initialize();
+const validation = new ValidationFramework({
+  failureMode: 'error',
+  parallel: true
+});
 
-const result = await framework.validate({
-  type: 'user-input',
-  data: { email: 'user@example.com' }
+// Use in your application
+const result = await validation.validate({
+  projectRoot: process.cwd(),
+  files: ['src/**/*.ts']
 });
 
 if (result.valid) {

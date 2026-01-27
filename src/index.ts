@@ -1,66 +1,44 @@
 /**
  * DCYFR AI-powered Node.js & TypeScript Starter Template
  * 
- * This is the main entry point for your application.
- * It demonstrates how to integrate DCYFR AI framework into a Node.js project.
+ * Main entry point that supports both web server and CLI modes.
+ * 
+ * Usage:
+ *   npm run serve      - Start web server
+ *   npm run cli        - Run CLI commands
+ *   npm start          - Default: start web server
  */
 
-import { 
-  ValidationFramework, 
-  TelemetryEngine
-} from '@dcyfr/ai';
+import { startServer } from './server.js';
+import { runCLI } from './cli.js';
 import { createLogger } from './lib/logger.js';
-import { loadConfig } from './lib/config.js';
 
 const logger = createLogger('main');
 
 /**
- * Initialize DCYFR AI framework with configuration
- */
-async function initializeFramework(): Promise<{ validation: ValidationFramework; telemetry: TelemetryEngine }> {
-  const config = await loadConfig();
-  
-  // Initialize telemetry engine
-  const telemetry = new TelemetryEngine({
-    enabled: config.telemetry.enabled,
-    storage: 'file',
-    basePath: '.dcyfr/telemetry'
-  });
-  
-  // Initialize validation framework
-  const validation = new ValidationFramework({
-    failureMode: config.validation.enabled ? 'error' : 'warn',
-    parallel: true
-  });
-  
-  logger.info('DCYFR AI Framework initialized successfully');
-  
-  return { validation, telemetry };
-}
-
-/**
  * Main application entry point
+ * Determines mode based on command line arguments
  */
 async function main(): Promise<void> {
   try {
-    logger.info('Starting DCYFR AI-powered Node.js application...');
+    const args = process.argv.slice(2);
     
-    // Initialize the framework
-    const { validation, telemetry } = await initializeFramework();
+    // If no arguments, start the web server by default
+    if (args.length === 0) {
+      logger.info('Starting DCYFR AI web server (default mode)...');
+      await startServer(3000);
+      return;
+    }
     
-    // Your application logic here
-    logger.info('Application started successfully');
-    logger.info('DCYFR AI framework ready', {
-      validation: 'enabled',
-      telemetry: 'enabled'
-    });
+    // Check if running as CLI
+    if (args[0] === 'cli' || process.argv[1]?.includes('cli.')) {
+      runCLI();
+      return;
+    }
     
-    // Graceful shutdown handler
-    process.on('SIGINT', async () => {
-      logger.info('Shutting down...');
-      await telemetry.shutdown?.();
-      process.exit(0);
-    });
+    // Default to server mode
+    logger.info('Starting DCYFR AI web server...');
+    await startServer(3000);
     
   } catch (error) {
     logger.error('Application failed to start', { 
@@ -79,5 +57,5 @@ async function main(): Promise<void> {
 main();
 
 // Export for testing
-export { initializeFramework, main };
+export { main };
 

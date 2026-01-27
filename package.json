@@ -3,12 +3,19 @@
   "version": "1.0.0",
   "description": "DCYFR AI-powered Node.js & TypeScript starter template",
   "type": "module",
-  "main": "./dist/index.js",
-  "types": "./dist/index.d.ts",
+  "main": "./dist/server.js",
+  "types": "./dist/server.d.ts",
+  "bin": {
+    "dcyfr-ai": "./dist/cli.js"
+  },
   "exports": {
     ".": {
-      "types": "./dist/index.d.ts",
-      "import": "./dist/index.js"
+      "types": "./dist/server.d.ts",
+      "import": "./dist/server.js"
+    },
+    "./cli": {
+      "types": "./dist/cli.d.ts",
+      "import": "./dist/cli.js"
     }
   },
   "scripts": {
@@ -16,6 +23,10 @@
     "build:watch": "tsc --watch",
     "dev": "tsx watch src/index.ts",
     "start": "node dist/index.js",
+    "serve": "tsx src/server.ts",
+    "serve:prod": "node dist/server.js",
+    "cli": "tsx src/cli.ts",
+    "cli:prod": "node dist/cli.js",
     "type-check": "tsc --noEmit",
     "lint": "eslint src/**/*.ts",
     "lint:fix": "eslint src/**/*.ts --fix",
@@ -37,7 +48,10 @@
   "author": "DCYFR",
   "license": "MIT",
   "dependencies": {
-    "@dcyfr/ai": "file:../dcyfr-ai"
+    "@dcyfr/ai": "file:../dcyfr-ai",
+    "@types/express": "^5.0.6",
+    "commander": "^14.0.2",
+    "express": "^5.2.1"
   },
   "devDependencies": {
     "@types/node": "^22.10.2",
