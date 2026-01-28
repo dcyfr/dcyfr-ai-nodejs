@@ -48,7 +48,7 @@
   "author": "DCYFR",
   "license": "MIT",
   "dependencies": {
-    "@dcyfr/ai": "file:../dcyfr-ai",
+    "@dcyfr/ai": "^1.0.1",
     "@types/express": "^5.0.6",
     "commander": "^14.0.2",
     "express": "^5.2.1"
