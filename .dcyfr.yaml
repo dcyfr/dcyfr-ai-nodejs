@@ -3,7 +3,7 @@ version: "1.0"
 extends: ../.dcyfr-workspace/config.yaml
 
 project:
-  name: dcyfr-ai-nodejs-starter
+  name: dcyfr-ai-nodejs
   type: starter-template
   description: Node.js & TypeScript starter template with DCYFR AI
   framework: nodejs
