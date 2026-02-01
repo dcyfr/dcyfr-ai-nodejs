@@ -316,6 +316,34 @@ import { MyTest } from '@tests/helpers';    // tests/helpers.ts
 - **Contributing**: [CONTRIBUTING.md](./CONTRIBUTING.md)
 - **DCYFR AI Docs**: [@dcyfr/ai documentation](../dcyfr-ai/README.md)
 
+## 📦 Versioning
+
+This package uses [Changesets](https://github.com/changesets/changesets) for automated versioning and releases.
+
+### For Contributors
+
+When making changes that affect the public API or user experience:
+
+```bash
+npm run changeset
+```
+
+This will prompt you to:
+1. Select the type of change (patch, minor, major)
+2. Provide a brief summary
+
+The changeset will be committed with your code changes. When merged to `main`, an automated "Version Packages" PR will be created.
+
+### Installing Specific Versions
+
+```bash
+# Latest version
+npm install @dcyfr/ai-nodejs-starter
+
+# Specific version
+npm install @dcyfr/ai-nodejs-starter@1.2.3
+```
+
 ## 🤝 Contributing
 
 Contributions are welcome! Please read [CONTRIBUTING.md](./CONTRIBUTING.md) for guidelines.
