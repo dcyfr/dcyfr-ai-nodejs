@@ -1,8 +1,9 @@
 # DCYFR AI Node.js & TypeScript Starter Template
 
-[![Node.js Version](https://img.shields.io/badge/node-%3E%3D24.13.0-brightgreen)](https://nodejs.org)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5.7-blue)](https://www.typescriptlang.org/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
+[![Node.js Version](https://img.shields.io/badge/node-%3E%3D24.13.0-339933?style=flat-square&logo=node.js&logoColor=white)](https://nodejs.org)
+[![TypeScript](https://img.shields.io/badge/TypeScript-Strict-3178C6?style=flat-square&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow?style=flat-square)](./LICENSE)
+[![Coverage](https://img.shields.io/badge/Coverage-80%25%2B-28a745?style=flat-square&logo=vitest)](./vitest.config.ts)
 
 **A production-ready starter template for building Node.js applications with TypeScript and DCYFR AI framework.**
 
