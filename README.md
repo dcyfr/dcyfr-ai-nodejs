@@ -349,9 +349,23 @@ npm install @dcyfr/ai-nodejs-starter@1.2.3
 
 Contributions are welcome! Please read [CONTRIBUTING.md](./CONTRIBUTING.md) for guidelines.
 
-## 📄 License
+## 📄 License & Sponsorship
 
-This project is licensed under the MIT License - see the [LICENSE](./LICENSE) file for details.
+**License:** MIT for personal/non-commercial use. Commercial use requires a paid tier.
+
+This template is dual-licensed:
+- **MIT License** for personal, educational, and non-commercial use (free)
+- **Commercial License** for business and revenue-generating use (paid tiers)
+
+**Sponsorship Tiers:**
+- 🌍 **Community** ($5/mo) - Signal community access (DCYFR.NET, Quantum Flux)
+- 💚 **Sponsors** ($10/mo) - Bio on website + private channels
+- 👨‍💻 **Developer** ($20/mo) - Limited commercial license + pre-release + portfolio support
+- 🚀 **Founder** ($2,400/yr) - Full commercial license + 1hr consultation/mo
+- 🏢 **Enterprise** ($9,600/yr) - Enterprise license + premium support
+
+**Learn more:** [SPONSORSHIP.md](../SPONSORSHIP.md) | **Contact:** licensing@dcyfr.ai
+**Trademark:** "DCYFR" is a trademark of DCYFR Labs. See [TRADEMARK.md](../TRADEMARK.md)
 
 ## 🔗 Related Projects
 
@@ -367,4 +381,4 @@ This project is licensed under the MIT License - see the [LICENSE](./LICENSE) fi
 
 ---
 
-**Built with ❤️ by DCYFR** | [Website](https://dcyfr.com) | [GitHub](https://github.com/dcyfr)
+**Built with ❤️ by DCYFR** | [Website](https://dcyfr.ai) | [GitHub](https://github.com/dcyfr)

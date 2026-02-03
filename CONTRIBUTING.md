@@ -2,6 +2,28 @@
 
 Thank you for your interest in contributing! This document provides guidelines for contributing to the DCYFR AI Node.js starter template.
 
+## Licensing & Contributions
+
+### Your Contributions
+
+By contributing to this template, you agree that:
+- Your contributions will be licensed under the MIT License (personal/non-commercial)
+- Commercial use requires a paid tier (see [LICENSE](./LICENSE))
+- You have the right to submit the contribution under this license
+- You grant DCYFR Labs perpetual rights to use, modify, and distribute your contribution
+
+### Trademark
+
+"DCYFR" is a trademark of DCYFR Labs. See [TRADEMARK.md](../TRADEMARK.md) for usage guidelines.
+
+### Commercial Contributors
+
+If you're contributing while working for a company using DCYFR commercially, ensure your company has the appropriate commercial license tier.
+
+**Questions?** licensing@dcyfr.ai
+
+---
+
 ## 🤝 How to Contribute
 
 ### Reporting Issues
@@ -295,11 +317,11 @@ Before submitting a PR, ensure:
 
 - **General Questions**: [GitHub Discussions](https://github.com/dcyfr/dcyfr-ai-nodejs/discussions)
 - **Bug Reports**: [GitHub Issues](https://github.com/dcyfr/dcyfr-ai-nodejs/issues)
-- **Security Issues**: Email security@dcyfr.com (do not open public issues)
+- **Security Issues**: Email security@dcyfr.ai (do not open public issues)
 
 ## 📜 Code of Conduct
 
-This project adheres to a Code of Conduct. By participating, you are expected to uphold this code. Please report unacceptable behavior to conduct@dcyfr.com.
+This project adheres to a Code of Conduct. By participating, you are expected to uphold this code. Please report unacceptable behavior to conduct@dcyfr.ai.
 
 ## 🙏 Thank You!
 
