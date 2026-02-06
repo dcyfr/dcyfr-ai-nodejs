@@ -5,16 +5,15 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow?style=flat-square)](./LICENSE)
 [![Coverage](https://img.shields.io/badge/Coverage-80%25%2B-28a745?style=flat-square&logo=vitest)](./vitest.config.ts)
 
-**A production-ready starter template for building Node.js applications with TypeScript and DCYFR AI framework.**
+**A production-ready starter template for building Node.js web servers with TypeScript and DCYFR AI framework.**
 
-This template provides a solid foundation for building modern web applications and CLI tools with integrated AI capabilities, strict TypeScript configuration, comprehensive testing setup, and best practices baked in.
+This template provides a solid foundation for building modern web applications with integrated AI capabilities, strict TypeScript configuration, comprehensive testing setup, and best practices baked in.
 
-**Includes both Web Server (Express) and CLI (Commander) for comprehensive development.**
+> **Looking for CLI tooling?** See [@dcyfr/ai-cli](../dcyfr-ai-cli) — the standalone command-line interface for the DCYFR AI framework.
 
 ## ✨ Features
 
 - 🌐 **Express Web Server** - Production-ready HTTP server with middleware
-- 🖥️ **Commander CLI** - Full-featured command-line interface
 - 🤖 **DCYFR AI Integration** - Built-in AI framework with plugins, validation, and telemetry
 - 📘 **TypeScript Strict Mode** - Full type safety with strict compiler options
 - ⚡ **Modern Node.js** - ESM modules, Node.js 24+, latest features
@@ -53,13 +52,6 @@ npm run dev
 npm run serve           # Start development web server
 npm start               # Start production web server
 
-# CLI Commands
-npm run cli serve       # Start server via CLI
-npm run cli status      # Show framework status
-npm run cli validate    # Run validation checks
-npm run cli telemetry   # Show telemetry info
-npm run cli init        # Show getting started info
-
 # Development
 npm run dev             # Run in watch mode
 npm run build           # Build for production
@@ -74,9 +66,8 @@ npm run lint            # Lint code
 ```
 dcyfr-ai-nodejs/
 ├── src/
-│   ├── index.ts              # Main entry point (router)
+│   ├── index.ts              # Main entry point
 │   ├── server.ts             # Express web server
-│   ├── cli.ts                # Commander CLI
 │   ├── lib/
 │   │   ├── logger.ts         # Structured logging utility
 │   │   └── config.ts         # Configuration loader
@@ -123,27 +114,6 @@ curl http://localhost:3000/health
 curl -X POST http://localhost:3000/api/validate \
   -H "Content-Type: application/json" \
   -d '{"data": {"email": "user@example.com"}}'
-```
-
-### CLI Commands
-
-Use the command-line interface for various operations:
-
-```bash
-# Show framework status
-npm run cli status
-
-# Run validation checks
-npm run cli validate
-
-# Show telemetry info
-npm run cli telemetry
-
-# Start web server via CLI
-npm run cli serve --port 3000
-
-# Get help
-npm run cli -- --help
 ```
 
 ### Basic Framework Usage

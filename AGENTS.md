@@ -13,8 +13,9 @@ License: MIT
 This is a **production-ready starter template** for building:
 - AI-powered Node.js applications
 - TypeScript-first backends
-- CLI tools with AI integration
 - API servers with LLM capabilities
+
+> **Looking for CLI tooling?** See [@dcyfr/ai-cli](../dcyfr-ai-cli) — the standalone command-line interface for the DCYFR AI framework.
 
 **Batteries Included:**
 - Pre-configured TypeScript setup
@@ -33,7 +34,6 @@ This is a **production-ready starter template** for building:
 ```
 src/
 ├── server.ts           # Main application entry point
-├── cli.ts              # CLI entry point
 ├── agents/             # Custom AI agents
 │   ├── my-agent.ts
 │   └── index.ts
@@ -80,35 +80,7 @@ app.listen(3000, () => {
 });
 ```
 
-### 3. CLI Pattern
-
-```typescript
-// src/cli.ts
-import { Command } from 'commander';
-import { AgentFramework } from '@dcyfr/ai';
-import { myAgent } from './agents';
-
-const program = new Command();
-const framework = new AgentFramework();
-
-framework.registerAgent(myAgent);
-
-program
-  .command('generate')
-  .description('Generate code using AI')
-  .option('-p, --prompt <prompt>', 'Generation prompt')
-  .action(async (options) => {
-    const result = await framework.execute('my-agent', {
-      input: options.prompt,
-    });
-    
-    console.log(result);
-  });
-
-program.parse();
-```
-
-### 4. Custom Agent Pattern
+### 3. Custom Agent Pattern
 
 ```typescript
 // src/agents/my-agent.ts
@@ -169,9 +141,6 @@ cp .env.example .env
 ```bash
 # Run in development mode
 npm run dev
-
-# Run CLI
-npm run cli -- generate --prompt "Hello world"
 
 # Run tests
 npm run test
@@ -341,7 +310,6 @@ DATABASE_URL=postgresql://...
 ### Core Dependencies
 - `@dcyfr/ai` - AI agent framework
 - `express` - Web framework (optional)
-- `commander` - CLI framework (optional)
 - `dotenv` - Environment variable management
 
 ### Dev Dependencies
@@ -427,7 +395,6 @@ app = "my-ai-app"
 
 See [examples/](examples/) directory for:
 - Basic server setup
-- CLI tool implementation
 - Custom agent examples
 - Integration patterns
 - Testing examples

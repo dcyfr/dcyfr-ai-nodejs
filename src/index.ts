@@ -1,45 +1,28 @@
 /**
  * DCYFR AI-powered Node.js & TypeScript Starter Template
  * 
- * Main entry point that supports both web server and CLI modes.
+ * Main entry point for the Express web server.
  * 
  * Usage:
- *   npm run serve      - Start web server
- *   npm run cli        - Run CLI commands
- *   npm start          - Default: start web server
+ *   npm run serve      - Start development server
+ *   npm run dev        - Start with hot reload
+ *   npm start          - Start production server
  */
 
 import { startServer } from './server.js';
-import { runCLI } from './cli.js';
 import { createLogger } from './lib/logger.js';
 
 const logger = createLogger('main');
 
 /**
  * Main application entry point
- * Determines mode based on command line arguments
+ * Starts the Express web server
  */
 async function main(): Promise<void> {
   try {
-    const args = process.argv.slice(2);
-    
-    // If no arguments, start the web server by default
-    if (args.length === 0) {
-      logger.info('Starting DCYFR AI web server (default mode)...');
-      await startServer(3000);
-      return;
-    }
-    
-    // Check if running as CLI
-    if (args[0] === 'cli' || process.argv[1]?.includes('cli.')) {
-      runCLI();
-      return;
-    }
-    
-    // Default to server mode
-    logger.info('Starting DCYFR AI web server...');
-    await startServer(3000);
-    
+    const port = parseInt(process.env.PORT || '3000', 10);
+    logger.info('Starting DCYFR AI web server...', { port });
+    await startServer(port);
   } catch (error) {
     logger.error('Application failed to start', { 
       error: error instanceof Error ? {
