@@ -9,6 +9,8 @@
 
 This template provides a solid foundation for building modern web applications with integrated AI capabilities, strict TypeScript configuration, comprehensive testing setup, and best practices baked in.
 
+> **📦 Starter Template** — This is a **starter template** for cloning, not an npm package. Use `git clone` or download the source to create your own Node.js application. This package is marked `private: true` and is not published to npm.
+
 > **Looking for CLI tooling?** See [@dcyfr/ai-cli](../dcyfr-ai-cli) — the standalone command-line interface for the DCYFR AI framework.
 
 ## Table of Contents

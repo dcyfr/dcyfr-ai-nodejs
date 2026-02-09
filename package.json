@@ -1,6 +1,7 @@
 {
   "name": "@dcyfr/ai-nodejs-starter",
   "version": "1.0.0",
+  "private": true,
   "description": "DCYFR AI-powered Node.js & TypeScript starter template",
   "type": "module",
   "main": "./dist/server.js",
