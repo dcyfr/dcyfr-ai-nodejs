@@ -11,7 +11,7 @@ This template provides a solid foundation for building modern web applications w
 
 > **📦 Starter Template** — This is a **starter template** for cloning, not an npm package. Use `git clone` or download the source to create your own Node.js application. This package is marked `private: true` and is not published to npm.
 
-> **Looking for CLI tooling?** See [@dcyfr/ai-cli](../dcyfr-ai-cli) — the standalone command-line interface for the DCYFR AI framework.
+> **🛠️ CLI Functionality** — CLI features are provided by the separate [`@dcyfr/ai-cli`](https://github.com/dcyfr/dcyfr-ai-cli) package. Install it via `npm install @dcyfr/ai-cli` or globally with `npm install -g @dcyfr/ai-cli`. See [MIGRATION.md](./MIGRATION.md) for details on the CLI extraction.
 
 ## Table of Contents
 
@@ -47,7 +47,8 @@ This template provides a solid foundation for building modern web applications w
 
 - 🌐 **Express Web Server** - Production-ready HTTP server with middleware
 - 🤖 **DCYFR AI Integration** - Built-in AI framework with plugins, validation, and telemetry
-- 📘 **TypeScript Strict Mode** - Full type safety with strict compiler options
+- �️ **CLI Tooling** - Integrated with [`@dcyfr/ai-cli`](https://github.com/dcyfr/dcyfr-ai-cli) for command-line operations
+- �📘 **TypeScript Strict Mode** - Full type safety with strict compiler options
 - ⚡ **Modern Node.js** - ESM modules, Node.js 24+, latest features
 - 🧪 **Vitest Testing** - Fast unit testing with coverage reporting
 - 🔧 **Developer Experience** - Hot reload, source maps, path aliases
