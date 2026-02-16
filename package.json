@@ -20,6 +20,7 @@
     "serve": "tsx src/server.ts",
     "serve:prod": "node dist/server.js",
     "cli": "dcyfr-cli",
+    "typecheck": "tsc --noEmit",
     "type-check": "tsc --noEmit",
     "lint": "eslint src/**/*.ts",
     "lint:fix": "eslint src/**/*.ts --fix",
