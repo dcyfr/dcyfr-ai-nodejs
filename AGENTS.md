@@ -413,3 +413,8 @@ See [examples/](examples/) directory for:
 **Last Updated:** February 1, 2026  
 **Template Type:** Starter/Boilerplate  
 **Recommended For:** AI-powered Node.js backends
+
+## Quality Gates
+- TypeScript: 0 errors (`npm run typecheck`)
+- Tests: ≥99% pass rate (`npm run test`)
+- Lint: 0 errors (`npm run lint`)
