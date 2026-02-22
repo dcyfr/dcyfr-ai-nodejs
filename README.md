@@ -581,13 +581,13 @@ This template is dual-licensed:
 - 🚀 **Founder** ($2,400/yr) - Full commercial license + 1hr consultation/mo
 - 🏢 **Enterprise** ($9,600/yr) - Enterprise license + premium support
 
-**Learn more:** [SPONSORSHIP.md](../SPONSORSHIP.md) | **Contact:** licensing@dcyfr.ai
+**Learn more:** [SPONSORS.md](../SPONSORS.md) | **Contact:** licensing@dcyfr.ai
 **Trademark:** "DCYFR" is a trademark of DCYFR Labs. See [TRADEMARK.md](../TRADEMARK.md)
 
 ## 🔗 Related Projects
 
 - [@dcyfr/ai](../dcyfr-ai) - Core DCYFR AI framework
-- [@dcyfr/agents](../dcyfr-agents) - DCYFR validation agents
+- [@dcyfr/agents](../dcyfr-ai-agents/) - DCYFR validation agents
 - [dcyfr-labs](../dcyfr-labs) - Reference implementation
 
 ## 💬 Support
