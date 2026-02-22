@@ -422,7 +422,7 @@ import { MyTest } from '@tests/helpers';    // tests/helpers.ts
 
 ## 📚 Documentation
 
-- **Getting Started**: [GETTING_STARTED.md](./GETTING_STARTED.md)
+- **Getting Started**: [GETTING_STARTED.md](./docs/GETTING_STARTED.md)
 - **Contributing**: [CONTRIBUTING.md](./CONTRIBUTING.md)
 - **DCYFR AI Docs**: [@dcyfr/ai documentation](../dcyfr-ai/README.md)
 
