@@ -57,6 +57,53 @@ This template provides a solid foundation for building modern web applications w
 - ✅ **Code Quality** - ESLint, Prettier, strict validation
 - 📦 **Ready to Deploy** - Production build configuration included
 
+---
+
+## ⚡ 30-Second Quick Start
+
+**Get running in under a minute:**
+
+```bash
+# Method 1: Using degit (fastest)
+npx degit dcyfr/dcyfr-ai-nodejs my-project
+
+# Method 2: Clone repository
+git clone https://github.com/dcyfr/dcyfr-ai-nodejs.git my-project
+
+# Install and run
+cd my-project
+npm install
+npm run dev
+# ✅ Server running at http://localhost:3000
+```
+
+**What you get immediately:**
+- ✅ Express server with hot reload
+- ✅ TypeScript strict mode configured
+- ✅ Vitest testing framework ready
+- ✅ ESLint + Prettier configured
+- ✅ Path aliases (@/ imports)
+- ✅ Example routes and tests
+
+---
+
+## 🧭 Related Packages
+
+| Package                                            | Purpose                  | Type        |
+| -------------------------------------------------- | ------------------------ | ----------- |
+| [@dcyfr/ai](../dcyfr-ai)                           | Core AI framework        | npm package |
+| [@dcyfr/ai-cli](../dcyfr-ai-cli)                   | CLI tools                | npm package |
+| [@dcyfr/ai-agents](../dcyfr-ai-agents)             | Autonomous agent template | Template    |
+| [@dcyfr/ai-api](../dcyfr-ai-api)                   | REST API template        | Template    |
+| [dcyfr-labs](../dcyfr-labs)                        | Production Next.js app   | Application |
+
+**See also:**
+- [Workspace Documentation](../README.md)
+- [Architecture Guide](../docs/architecture/)
+- [Contributing Guide](../CONTRIBUTING.md)
+
+---
+
 ## 🚀 Quick Start
 
 ### Prerequisites
