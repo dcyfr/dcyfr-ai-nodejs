@@ -50,7 +50,7 @@
   "author": "DCYFR",
   "license": "MIT",
   "dependencies": {
-    "@dcyfr/ai": "^1.0.4",
+    "@dcyfr/ai": "^2.1.0",
     "@dcyfr/ai-cli": "^1.0.2",
     "@types/express": "^5.0.6",
     "express": "^5.2.1"
