@@ -46,7 +46,7 @@ jobs:
           NODE_AUTH_TOKEN: $NPM_TOKEN
           NPM_TOKEN: $NPM_TOKEN
       - name: Load secrets from 1Password
-        uses: 1password/load-secrets-action@v1
+        uses: 1password/load-secrets-action@v3
         with:
           export-env: true
         env:
