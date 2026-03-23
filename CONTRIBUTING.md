@@ -7,6 +7,7 @@ Thank you for your interest in contributing! This document provides guidelines f
 ### Your Contributions
 
 By contributing to this template, you agree that:
+
 - Your contributions will be licensed under the MIT License (personal/non-commercial)
 - Commercial use requires a paid tier (see [LICENSE](./LICENSE))
 - You have the right to submit the contribution under this license
@@ -20,7 +21,7 @@ By contributing to this template, you agree that:
 
 If you're contributing while working for a company using DCYFR commercially, ensure your company has the appropriate commercial license tier.
 
-**Questions?** licensing@dcyfr.ai
+**Questions?** [licensing@dcyfr.ai](mailto:licensing@dcyfr.ai)
 
 ---
 
@@ -173,7 +174,7 @@ import { describe, it, expect, beforeEach } from 'vitest';
 
 describe('UserService', () => {
   let service: UserService;
-  
+
   beforeEach(() => {
     service = new UserService();
   });
@@ -184,8 +185,9 @@ describe('UserService', () => {
   });
 
   it('should throw error for invalid input', async () => {
-    await expect(service.createUser({ name: '' }))
-      .rejects.toThrow('Name is required');
+    await expect(service.createUser({ name: '' })).rejects.toThrow(
+      'Name is required'
+    );
   });
 });
 ```
@@ -214,13 +216,13 @@ npm run test:watch
 - Include **parameter descriptions** and return types
 - Provide **usage examples** for complex functions
 
-```typescript
+````typescript
 /**
  * Create a structured logger instance
- * 
+ *
  * @param namespace - Logger namespace for organizing logs
  * @returns Logger instance with debug, info, warn, error methods
- * 
+ *
  * @example
  * ```typescript
  * const logger = createLogger('app');
@@ -230,7 +232,7 @@ npm run test:watch
 export function createLogger(namespace: string): Logger {
   // ...
 }
-```
+````
 
 ### README Updates
 
@@ -256,6 +258,7 @@ footer
 ```
 
 **Types:**
+
 - `feat`: New feature
 - `fix`: Bug fix
 - `docs`: Documentation changes

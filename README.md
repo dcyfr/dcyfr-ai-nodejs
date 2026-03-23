@@ -15,6 +15,15 @@ This template provides a solid foundation for building modern web applications w
 
 > **🛠️ CLI Functionality** — CLI features are provided by the separate [`@dcyfr/ai-cli`](https://github.com/dcyfr/dcyfr-ai-cli) package. Install it via `npm install @dcyfr/ai-cli` or globally with `npm install -g @dcyfr/ai-cli`. See [MIGRATION.md](./MIGRATION.md) for details on the CLI extraction.
 
+## About DCYFR
+
+`@dcyfr/ai-nodejs-starter` is maintained by **DCYFR Labs** as part of the DCYFR starter template portfolio.
+
+- **DCYFR** is a registered trademark of DCYFR Labs.
+- Primary domain: [www.dcyfr.ai](https://www.dcyfr.ai)
+- Trademark guidance: [../TRADEMARK.md](../TRADEMARK.md)
+- Licensing details: [LICENSE](./LICENSE)
+
 ## Table of Contents
 
 <details>

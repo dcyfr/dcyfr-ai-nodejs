@@ -50,7 +50,7 @@
     "template",
     "framework"
   ],
-  "author": "DCYFR",
+  "author": "DCYFR Labs",
   "license": "MIT",
   "dependencies": {
     "@dcyfr/ai": "^2.1.1",
@@ -78,5 +78,9 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/dcyfr/dcyfr-ai-nodejs"
-  }
+  },
+  "bugs": {
+    "url": "https://github.com/dcyfr/dcyfr-ai-nodejs/issues"
+  },
+  "homepage": "https://github.com/dcyfr/dcyfr-ai-nodejs#readme"
 }
